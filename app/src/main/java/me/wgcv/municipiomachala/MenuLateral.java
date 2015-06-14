@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,15 +24,12 @@ public class MenuLateral {
     public Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private ListView leftDrawerList;
-    private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] menu = {"Inicio", "Android", "Sitemap", "About", "Contact Me"};
     private Principal principal;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    public MenuLateral(Principal principal){
+    public MenuLateral(final Principal principal){
         this.principal = principal;
         nitView();
         if (toolbar != null) {
@@ -44,7 +44,32 @@ public class MenuLateral {
         listAdapter = new ExpandableListAdapter(principal, listDataHeader, listDataChild);
         // setting list adapter
         expListView.setAdapter(listAdapter);
+
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                Log.d("skt", "clicked parent " + groupPosition + " child "
+                        + id);
+                return false;
+            }
+        });
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView arg0,
+                                        View arg1, int arg2, int arg3, long arg4) {
+                // TODO Auto-generated method stub
+
+                Log.d("skt", "clicked parent " + arg2 + " child "
+                        + arg3);
+
+                return false;
+            }
+        });
+
     }
+
     public void syncState() {
         drawerToggle.syncState();
 
@@ -54,11 +79,8 @@ public class MenuLateral {
 
     }
     private void nitView() {
-       // leftDrawerList = (ListView) principal.findViewById(R.id.left_drawer);
         toolbar = (Toolbar) principal.findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) principal.findViewById(R.id.drawerLayout);
-       // navigationDrawerAdapter=new ArrayAdapter<String>( principal, android.R.layout.simple_list_item_1, menu);
-        //leftDrawerList.setAdapter(navigationDrawerAdapter);
     }
 
     private void initDrawer() {
@@ -89,37 +111,46 @@ public class MenuLateral {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
+        listDataHeader.add("Inicio");
+        listDataHeader.add("Información");
+        listDataHeader.add("La comunidad");
+        listDataHeader.add("Consultas");
+        listDataHeader.add("Salud");
+        listDataHeader.add("Puntos Wifi");
+        listDataHeader.add("Información del municipio");
 
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
+        List<String> informacion = new ArrayList<String>();
+        informacion.add("Noticias");
+        informacion.add("Agenda");
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
 
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
+        List<String> LaComunidad = new ArrayList<String>();
+        LaComunidad.add("Sitios turísticos");
+        LaComunidad.add("Información");
+        LaComunidad.add("Contactanos y quejas");
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+        List<String> consultas = new ArrayList<String>();
+        consultas.add("Rentas");
+        consultas.add("Matriculación");
+        consultas.add("Servicios de agua");
+        consultas.add("Terminal Terrestre");
+        List<String> salud = new ArrayList<String>();
+        salud.add("Consulta de citas");
+        salud.add("Solicitar citas");
+        salud.add("Puntos médicos");
+
+        List<String> informacionMunicipio = new ArrayList<String>();
+        informacionMunicipio.add("Agencia del municipio");
+        informacionMunicipio.add("Números de Emergencias");
+
+        listDataChild.put(listDataHeader.get(0), new ArrayList<String>()); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), informacion);
+        listDataChild.put(listDataHeader.get(2), LaComunidad);
+        listDataChild.put(listDataHeader.get(3), consultas);
+        listDataChild.put(listDataHeader.get(4), salud);
+        listDataChild.put(listDataHeader.get(5), new ArrayList<String>());
+        listDataChild.put(listDataHeader.get(6), informacionMunicipio);
+
     }
 }
