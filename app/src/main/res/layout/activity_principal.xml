@@ -31,9 +31,9 @@
         <RelativeLayout
             android:layout_gravity="left|start"
             android:layout_width="match_parent"
-            android:background="#fff"
+            android:background="#333333"
             android:layout_height="match_parent">
-
+<!--
             <ListView
                 android:id="@+id/left_drawer"
                 android:layout_width="match_parent"
@@ -42,6 +42,13 @@
                 android:textColor="#696969"
                 android:background= "@color/primaryColorDark"
                 android:dividerHeight="1dp" />
+
+                -->
+            <ExpandableListView
+                android:id="@+id/lvExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ExpandableListView>
         </RelativeLayout>
 
     </android.support.v4.widget.DrawerLayout>
