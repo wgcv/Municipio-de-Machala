@@ -101,6 +101,13 @@ public class MenuLateral {
                     }
 
                 }
+                if (groupPosition == 4){
+                    if(childPosition== 1){
+                        Intent intent = new Intent(principal, SolicitarCita.class);
+                        principal.startActivity(intent);
+
+                    }
+                }
                 if (groupPosition == 6){
                     if(childPosition== 0){
                         Intent intent = new Intent(principal, Municipio.class);

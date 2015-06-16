@@ -19,4 +19,12 @@
     </string-array>
     <string name="title_activity_noticias">Noticias</string>
     <string name="title_activity_municipio">Municipio</string>
+    <string name="title_activity_solicitar_cita">SolicitarCita</string>
+    <string-array name="especialidades">
+        <item>Medicina General</item>
+        <item>Cardiologo</item>
+        <item>Otorrino</item>
+        <item>Dentista</item>
+        <item>Dermatologo</item>
+    </string-array>
 </resources>

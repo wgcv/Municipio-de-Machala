@@ -60,6 +60,10 @@
             android:name=".Municipio"
             android:label="@string/title_activity_municipio" >
         </activity>
+        <activity
+            android:name=".SolicitarCita"
+            android:label="@string/title_activity_solicitar_cita" >
+        </activity>
     </application>
 
 </manifest>
