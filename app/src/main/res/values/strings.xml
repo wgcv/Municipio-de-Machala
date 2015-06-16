@@ -17,4 +17,6 @@
         <item>Santo Domingo</item>
         <item>Loja</item>
     </string-array>
+    <string name="title_activity_noticias">Noticias</string>
+    <string name="title_activity_municipio">Municipio</string>
 </resources>

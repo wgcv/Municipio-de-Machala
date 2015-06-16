@@ -77,6 +77,13 @@ public class MenuLateral {
                 Log.d("skt", "clicked parent " + groupPosition + " child "
                         + childPosition);
                 //Log.d( expListView.getExpandableListAdapter().getChild(groupPosition, childPosition).toString(), "Memnsaje");
+                if (groupPosition == 1){
+                    if(childPosition== 0){
+                        Intent intent = new Intent(principal, Noticias.class);
+                        principal.startActivity(intent);
+
+                    }
+                }
                 if(groupPosition == 3){
                     if(childPosition== 3){
                         Intent intent = new Intent(principal, TerminalTerrestre.class);
@@ -93,6 +100,13 @@ public class MenuLateral {
 
                     }
 
+                }
+                if (groupPosition == 6){
+                    if(childPosition== 0){
+                        Intent intent = new Intent(principal, Municipio.class);
+                        principal.startActivity(intent);
+
+                    }
                 }
 
                 return false;

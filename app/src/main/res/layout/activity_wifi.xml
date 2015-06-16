@@ -4,12 +4,42 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <include layout="@layout/toolbar" />
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:id="@+id/drawerLayout"
+        android:layout_height="match_parent">
 
     <fragment
         android:id="@+id/mapView"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <!-- navigation drawer -->
+    <RelativeLayout
+        android:layout_gravity="left|start"
+        android:layout_width="match_parent"
+        android:background="#333333"
+        android:layout_height="match_parent">
+        <!--
+                    <ListView
+                        android:id="@+id/left_drawer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="#696969"
+                        android:textColor="#696969"
+                        android:background= "@color/primaryColorDark"
+                        android:dividerHeight="1dp" />
+
+                        -->
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ExpandableListView>
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>

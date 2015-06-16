@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -30,6 +32,10 @@ public class TerminalTerrestre extends ActionBarActivity {
 
             }
         });
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.Ciudades, R.layout.spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        spinner.setAdapter(adapter);
     }
 
     @Override
