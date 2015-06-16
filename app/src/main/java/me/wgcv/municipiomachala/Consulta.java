@@ -2,43 +2,39 @@ package me.wgcv.municipiomachala;
 
 import android.content.res.Configuration;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageSwitcher;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.ViewSwitcher.ViewFactory;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
 
-
-public class Principal extends ActionBarActivity {
-
-
+public class Consulta extends ActionBarActivity {
     MenuLateral menu;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal);
+        setContentView(R.layout.activity_consulta);
         menu = new MenuLateral(this);
+        Bundle bundle = getIntent().getExtras();
+        String info = bundle.getString("info");
+        TextView titulo = (TextView) findViewById(R.id.textView2);
+        titulo.setText(titulo.getText()+ info);
+        Button boton = (Button) findViewById(R.id.Consultar);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        CustomPagerAdapter mCustomPagerAdapter = new CustomPagerAdapter(this);
+                TableLayout tablelayout = (TableLayout) findViewById(R.id.tabla);
 
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mCustomPagerAdapter);
+                tablelayout.setVisibility(View.VISIBLE);
 
+            }
+        });
 
     }
     @Override

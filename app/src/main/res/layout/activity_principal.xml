@@ -14,18 +14,90 @@
         android:layout_height="match_parent">
 
         <!-- activity view -->
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:background="#fff"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/pager"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.30">
+            </android.support.v4.view.ViewPager>
 
             <TextView
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:textColor="#000"
-                android:text="Activity Content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Lo nuevo de Machala"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.08"
+                android:textColor="@color/primaryColor"
+                android:autoText="false"
+                android:gravity="center_horizontal"
+                android:fontFamily="Roboto regular " />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.30">
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton2"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.30">
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton4"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton5"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton6"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".25" />
+
+
+            </LinearLayout>
+        </LinearLayout>
 
         <!-- navigation drawer -->
         <RelativeLayout

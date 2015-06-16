@@ -1,8 +1,10 @@
 package me.wgcv.municipiomachala;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,6 +18,7 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by wgcv on 13/06/15.
@@ -24,12 +27,12 @@ public class MenuLateral {
     public Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private Principal principal;
+    final  ActionBarActivity principal;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    public MenuLateral(final Principal principal){
+    public MenuLateral(final ActionBarActivity principal){
         this.principal = principal;
         nitView();
         if (toolbar != null) {
@@ -51,6 +54,16 @@ public class MenuLateral {
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 Log.d("skt", "clicked parent " + groupPosition + " child "
                         + id);
+                if(groupPosition == 0){
+                    Intent intent = new Intent(principal, Principal.class);
+                    principal.startActivity(intent);
+
+
+                }
+                if(groupPosition == 5){
+                    Intent intent = new Intent(principal, Wifi.class);
+                    principal.startActivity(intent);
+                }
                 return false;
             }
         });
@@ -58,11 +71,29 @@ public class MenuLateral {
 
             @Override
             public boolean onChildClick(ExpandableListView arg0,
-                                        View arg1, int arg2, int arg3, long arg4) {
+                                        View arg1, int groupPosition, int childPosition, long arg4) {
                 // TODO Auto-generated method stub
 
-                Log.d("skt", "clicked parent " + arg2 + " child "
-                        + arg3);
+                Log.d("skt", "clicked parent " + groupPosition + " child "
+                        + childPosition);
+                //Log.d( expListView.getExpandableListAdapter().getChild(groupPosition, childPosition).toString(), "Memnsaje");
+                if(groupPosition == 3){
+                    if(childPosition== 3){
+                        Intent intent = new Intent(principal, TerminalTerrestre.class);
+                       principal.startActivity(intent);
+
+
+
+                    }else{
+                        Intent intent = new Intent(principal, Consulta.class);
+                        intent.putExtra("inhe?fo", expListView.getExpandableListAdapter().getChild(groupPosition, childPosition).toString());
+
+                        principal.startActivity(intent);
+
+
+                    }
+
+                }
 
                 return false;
             }

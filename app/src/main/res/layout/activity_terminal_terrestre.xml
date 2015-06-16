@@ -1,0 +1,376 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/toolbar" />
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:id="@+id/drawerLayout"
+        android:layout_height="match_parent">
+
+        <!-- activity view -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.55"
+                    android:weightSum="1"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Terminal Terrestre"
+                        android:id="@+id/textView2"
+                        android:layout_marginBottom="25dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ciudad:"
+                        android:id="@+id/textView4"
+                        android:layout_gravity="center_vertical" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner"
+
+                        android:layout_gravity="center_horizontal"
+
+                        android:entries="@array/Ciudades" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Seleccione:"
+                        />
+
+                    <RadioGroup
+                        android:layout_width="209dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Arrivos"
+                            android:id="@+id/radioButton" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Partidas"
+                            android:id="@+id/radioButton2" />
+
+                    </RadioGroup>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consultar"
+                        android:id="@+id/Consultar"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="25dp" />
+
+                </LinearLayout>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/tabla"
+                    android:layout_weight="0.40"
+                    android:visibility="invisible">
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:stretchColumns="0,1"
+                        android:id="@+id/maintable">
+
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Partida"
+                            android:id="@+id/textView5"
+                            android:textColor="#fd203227" />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Arribo"
+                            android:id="@+id/textView6"
+                            android:textColor="#fd203227" />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hora de llegada"
+                            android:id="@+id/textView7"
+                            android:textColor="#fd203227" />
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Valor"
+                            android:id="@+id/textView8"
+                            android:textColor="#fd203227" />
+
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cuenca"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13h00"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$7.00"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Guayaquil"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13h30"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$10.00"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cuenca"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14h30"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$7.00"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Loja"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15h00"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$8.00"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Santo Domingo"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17h00"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$12.00"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Guayaquil"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Machala"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18h00"
+                            />
+                        <TextView
+                            android:layout_marginLeft="15sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$10.00"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- navigation drawer -->
+        <RelativeLayout
+            android:layout_gravity="left|start"
+            android:layout_width="match_parent"
+            android:background="#333333"
+            android:layout_height="match_parent">
+            <!--
+                        <ListView
+                            android:id="@+id/left_drawer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:divider="#696969"
+                            android:textColor="#696969"
+                            android:background= "@color/primaryColorDark"
+                            android:dividerHeight="1dp" />
+
+                            -->
+            <ExpandableListView
+                android:id="@+id/lvExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ExpandableListView>
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
